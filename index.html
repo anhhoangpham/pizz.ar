@@ -19,11 +19,11 @@
     <div class="centered instructions"></div>
 
     <a-scene embedded arjs>
-        <a-assets>
-            <a-asset-item id="animated-asset" src="./assets/Pizza_1.obj"></a-asset-item>
-        </a-assets>
+<!--        <a-assets>-->
+<!--            <a-asset-item id="animated-asset" src="./assets/Pizza_1.obj"></a-asset-item>-->
+<!--        </a-assets>-->
 
-        <a-entity obj-model="#animated-asset" scale="1"></a-entity>
+        <a-entity fbx-model="src: url(./assets/Pizza_1/pizza.fbx);" ></a-entity>
 
         <a-marker-camera type='pattern' url='./marker.patt'></a-marker-camera>
 
