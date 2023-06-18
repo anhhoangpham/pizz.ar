@@ -24,7 +24,15 @@
         embedded
         arjs='sourceType: webcam; debugUIEnabled: false;'>
 
-        <a-entity camera></a-entity>
+        <a-assets>
+            <a-asset-item id="pizza" src="./assets/Pizza02/pizza.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker-camera preset="hiro">
+
+            <a-entity gltf-model="#pizza" scale="2"></a-entity>
+
+        </a-marker-camera>
     </a-scene>
 
     <div class="centered">
