@@ -19,14 +19,16 @@
     <div class="centered instructions"></div>
 
     <a-scene embedded arjs>
-<!--        <a-assets>-->
-<!--            <a-asset-item id="animated-asset" src="./assets/Pizza_1/pizza.fbx"></a-asset-item>-->
-<!--        </a-assets>-->
+        <a-assets>
+            <a-asset-item id="pizza01" src="./assets/Pizza01/pizza.gltf"></a-asset-item>
+            <a-asset-item id="pizza02" src="./assets/Pizza02/pizza.gltf"></a-asset-item>
+            <a-asset-item id="pizza03" src="./assets/Pizza03/pizza.gltf"></a-asset-item>
+        </a-assets>
 
 
         <a-marker-camera type='pattern' url='./marker.patt'>
 
-            <a-entity fbx-model="src: url(assets/Pizza_1/pizza.fbx);" ></a-entity>
+            <a-entity gltf-model="##pizza03"></a-entity>
 
         </a-marker-camera>
 
