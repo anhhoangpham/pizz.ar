@@ -23,9 +23,12 @@
 <!--            <a-asset-item id="animated-asset" src="./assets/Pizza_1/pizza.fbx"></a-asset-item>-->
 <!--        </a-assets>-->
 
-        <a-entity fbx-model="src: url(assets/Pizza_1/pizza.fbx);" ></a-entity>
 
-        <a-marker-camera type='pattern' url='./marker.patt'></a-marker-camera>
+        <a-marker-camera type='pattern' url='./marker.patt'>
+
+            <a-entity fbx-model="src: url(assets/Pizza_1/pizza.fbx);" ></a-entity>
+
+        </a-marker-camera>
 
     </a-scene>
 <!--    <div class="centered">-->
