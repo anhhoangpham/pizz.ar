@@ -51,10 +51,11 @@ function renderPizza() {
     marker.setAttribute('preset', 'hiro');
 
     let model = document.createElement('a-entity');
-
     setModel(models[modelIndex], model);
-
     model.setAttribute('animation-mixer', '');
+
+    marker.appendChild(model);
+    scene.appendChild(marker);
 
     document.querySelector('button[data-action="change"]').addEventListener('click', function () {
         var entity = document.querySelector('[gps-entity-place]');
@@ -62,8 +63,6 @@ function renderPizza() {
         var newIndex = modelIndex % models.length;
         setModel(models[newIndex], entity);
     });
-
-    scene.appendChild(model);
 
 //    places.forEach((place) => {
 //        let latitude = place.location.lat;
