@@ -9,18 +9,21 @@ window.onload = () => {
 var models = [
     {
         url: './assets/Pizza01/pizza.gltf',
-        scale: '2',
+        scale: '2 2 2',
         info: 'Cheese',
+        rotation: '0 180 0',
     },
     {
         url: './assets/Pizza02/pizza.gltf',
-        scale: '1',
+        scale: '1 1 1',
         info: 'Salami',
+        rotation: '0 180 0',
     },
     {
         url: './assets/Pizza03/pizza.gltf',
-        scale: '2',
+        scale: '2 2 2',
         info: 'Pepperoni',
+        rotation: '0 180 0',
     },
 ];
 
@@ -58,7 +61,7 @@ function renderPizza() {
     scene.appendChild(marker);
 
     document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-        var entity = document.querySelector('[gps-entity-place]');
+        var entity = document.querySelector('a-entity');
         modelIndex++;
         var newIndex = modelIndex % models.length;
         setModel(models[newIndex], entity);
