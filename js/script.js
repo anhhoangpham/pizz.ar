@@ -14,7 +14,7 @@ var models = [
     },
     {
         src: './assets/Pizza02/pizza.gltf',
-        scale: '0.5 0.5 0.5',
+        scale: '2 2 2',
         info: 'Salami',
     },
     {
