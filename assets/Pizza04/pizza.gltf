@@ -76,8 +76,8 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Pizza_Albedo",
-			"uri":"Pizza_Albedo.png"
+			"name":"Pizza_Albedo.tga",
+			"uri":"Pizza_Albedo_tga.png"
 		}
 	],
 	"accessors":[
