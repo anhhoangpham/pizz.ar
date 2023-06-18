@@ -19,16 +19,24 @@
 <body style='margin: 0; overflow: hidden;'>
     <div class="centered instructions"></div>
 
-    <a-scene embedded arjs>
+    <a-scene embedded arjs='sourceType: webcam;'>
         <a-assets>
-            <a-asset-item id="pizza01" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+            <a-asset-item id="cesiumman" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+            <a-asset-item id="pizza01" src="./assets/Pizza01/pizza.gltf"></a-asset-item>
             <a-asset-item id="pizza02" src="./assets/Pizza02/pizza.gltf"></a-asset-item>
             <a-asset-item id="pizza03" src="./assets/Pizza03/pizza.gltf"></a-asset-item>
         </a-assets>
 
-
         <a-marker preset='hiro'>
-            <a-entity gltf-model="#pizza02"></a-entity>
+            <a-entity gltf-model="#pizza01" scale="2"></a-entity>
+        </a-marker>
+
+        <a-marker type='barcode' value='5'>
+            <a-entity gltf-model="#pizza02" scale="2"></a-entity>
+        </a-marker>
+
+        <a-marker  type='pattern' url='./marker.patt'>
+            <a-entity gltf-model="#pizza03" scale="2"></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
