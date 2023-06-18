@@ -3,23 +3,23 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '﹖';
 
-//    renderPizza();
+    renderPizza();
 };
 
 var models = [
     {
         url: './assets/Pizza01/pizza.gltf',
-        scale: '0.5 0.5 0.5',
+//        scale: '0.5 0.5 0.5',
         info: 'Cheese',
     },
     {
         url: './assets/Pizza02/pizza.gltf',
-        scale: '0.5 0.5 0.5',
+//        scale: '0.5 0.5 0.5',
         info: 'Salami',
     },
     {
         url: './assets/Pizza03/pizza.gltf',
-        scale: '0.5 0.5 0.5',
+//        scale: '0.5 0.5 0.5',
         info: 'Pepperoni',
     },
 ];
@@ -47,7 +47,7 @@ var setModel = function (model, entity) {
 function renderPizza() {
     let scene = document.querySelector('a-scene');
 
-    let marker = document.createElement('a-marker');
+    let marker = document.createElement('a-marker-camera');
     marker.setAttribute('preset', 'hiro');
 
     let model = document.createElement('a-entity');
