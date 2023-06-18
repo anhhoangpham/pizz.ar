@@ -1,7 +1,7 @@
 
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
-    button.innerText = 'Next';
+    button.innerText = '﹖';
 
     renderPizza();
 };
