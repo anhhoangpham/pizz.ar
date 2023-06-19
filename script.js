@@ -1,31 +1,37 @@
 
 window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '﹖';
-
     renderPizza();
+    setupButtons();
 };
 
 var models = [
     {
         src: './assets/Pizza01/pizza.gltf',
-        scale: '0.5 0.5 0.5',
+        scale: '0.6126420062731839 0.6126420062731839 0.6126420062731839',
         info: 'Cheese',
+        thumbnail: './assets/Pizza01/thumbnail.png'
     },
     {
         src: './assets/Pizza02/pizza.gltf',
         scale: '2 2 2',
         info: 'Salami',
+        thumbnail: './assets/Pizza02/thumbnail.png'
+    },
+    {
+        src: './assets/Pizza03/pizza.gltf',
+        scale: '0.07666791817270857 0.07666791817270857 0.07666791817270857',
+        info: 'Pepperoni',
+        thumbnail: './assets/Pizza03/thumbnail.png'
     },
     {
         src: './assets/Pizza04/pizza.gltf',
         scale: '4.124475892003208 4.124475892003208 4.124475892003208',
         info: 'New pizza',
+        thumbnail: './assets/Pizza04/thumbnail.png'
     },
 
 ];
 
-var modelIndex = 0;
 var setModel = function (model, entity) {
     if (model.scale) {
         entity.setAttribute('scale', model.scale);
@@ -47,12 +53,24 @@ var setModel = function (model, entity) {
 
 function renderPizza() {
     let model = document.querySelector('a-entity');
-    setModel(models[modelIndex], model);
+    setModel(models[0], model);
+}
 
-    document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-        var entity = document.querySelector('a-entity');
-        modelIndex++;
-        var newIndex = modelIndex % models.length;
-        setModel(models[newIndex], entity);
+function setupButtons() {
+    let buttonGroup = document.getElementById('button_group')
+    models.forEach((pizza) => {
+        let thumbnail = document.createElement('img')
+        thumbnail.setAttribute('src', pizza.thumbnail)
+        thumbnail.setAttribute('width', "100")
+        thumbnail.setAttribute('height', "100")
+
+        let button = document.createElement('button')
+        button.addEventListener('click', function() {
+            let model = document.querySelector('a-entity');
+            setModel(pizza, model);
+        });
+
+        button.appendChild(thumbnail)
+        buttonGroup.appendChild(button)
     });
 }
