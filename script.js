@@ -7,7 +7,7 @@ window.onload = () => {
 var models = [
     {
         src: './assets/Pizza01/pizza.gltf',
-        scale: '0.5 0.5 0.5',
+        scale: '0.6126420062731839 0.6126420062731839 0.6126420062731839',
         info: 'Cheese',
         thumbnail: './assets/Pizza01/thumbnail.png'
     },
@@ -17,12 +17,12 @@ var models = [
         info: 'Salami',
         thumbnail: './assets/Pizza02/thumbnail.png'
     },
-//    {
-//        src: './assets/Pizza03/pizza.gltf',
-//        scale: '0.5 0.5 0.5',
-//        info: 'Pepperoni',
-//        thumbnail: './assets/Pizza03/thumbnail.png'
-//    },
+    {
+        src: './assets/Pizza03/pizza.gltf',
+        scale: '0.07666791817270857 0.07666791817270857 0.07666791817270857',
+        info: 'Pepperoni',
+        thumbnail: './assets/Pizza03/thumbnail.png'
+    },
     {
         src: './assets/Pizza04/pizza.gltf',
         scale: '4.124475892003208 4.124475892003208 4.124475892003208',
