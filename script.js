@@ -17,12 +17,12 @@ var models = [
         info: 'Salami',
         thumbnail: './assets/Pizza02/thumbnail.png'
     },
-    {
-        src: './assets/Pizza03/pizza.gltf',
-        scale: '0.5 0.5 0.5',
-        info: 'Pepperoni',
-        thumbnail: './assets/Pizza03/thumbnail.png'
-    },
+//    {
+//        src: './assets/Pizza03/pizza.gltf',
+//        scale: '0.5 0.5 0.5',
+//        info: 'Pepperoni',
+//        thumbnail: './assets/Pizza03/thumbnail.png'
+//    },
     {
         src: './assets/Pizza04/pizza.gltf',
         scale: '4.124475892003208 4.124475892003208 4.124475892003208',
