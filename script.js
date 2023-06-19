@@ -1,6 +1,7 @@
 
 window.onload = () => {
     renderPizza();
+    setupButtons();
 };
 
 var models = [
@@ -18,7 +19,7 @@ var models = [
     },
     {
         src: './assets/Pizza03/pizza.gltf',
-        scale: '1 1 1',
+        scale: '0.5 0.5 0.5',
         info: 'Pepperoni',
         thumbnail: './assets/Pizza03/thumbnail.png'
     },
@@ -31,7 +32,6 @@ var models = [
 
 ];
 
-var modelIndex = 0;
 var setModel = function (model, entity) {
     if (model.scale) {
         entity.setAttribute('scale', model.scale);
@@ -53,8 +53,10 @@ var setModel = function (model, entity) {
 
 function renderPizza() {
     let model = document.querySelector('a-entity');
-    setModel(models[modelIndex], model);
+    setModel(models[0], model);
+}
 
+function setupButtons() {
     let buttonGroup = document.getElementById('button_group')
     models.forEach((pizza) => {
         let thumbnail = document.createElement('img')
@@ -71,11 +73,4 @@ function renderPizza() {
         button.appendChild(thumbnail)
         buttonGroup.appendChild(button)
     });
-
-//    document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-//        var entity = document.querySelector('a-entity');
-//        modelIndex++;
-//        var newIndex = modelIndex % models.length;
-//        setModel(models[newIndex], entity);
-//    });
 }
