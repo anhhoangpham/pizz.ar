@@ -1,8 +1,5 @@
 
 window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '﹖';
-
     renderPizza();
 };
 
@@ -58,17 +55,27 @@ function renderPizza() {
     let model = document.querySelector('a-entity');
     setModel(models[modelIndex], model);
 
-    let centeredDiv = document.querySelector('centered')
+    let buttonGroup = document.getElementById('button_group')
     models.forEach((pizza) => {
         let thumbnail = document.createElement('img')
         thumbnail.setAttribute('src', pizza.thumbnail)
-        centeredDiv.appendChild(thumbnail)
-    })
+        thumbnail.setAttribute('width', "100")
+        thumbnail.setAttribute('height', "100")
 
-    document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-        var entity = document.querySelector('a-entity');
-        modelIndex++;
-        var newIndex = modelIndex % models.length;
-        setModel(models[newIndex], entity);
+        let button = document.createElement('button')
+        button.addEventListener('click', function() {
+            let model = document.querySelector('a-entity');
+            setModel(pizza, model);
+        });
+
+        button.appendChild(thumbnail)
+        buttonGroup.appendChild(button)
     });
+
+//    document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+//        var entity = document.querySelector('a-entity');
+//        modelIndex++;
+//        var newIndex = modelIndex % models.length;
+//        setModel(models[newIndex], entity);
+//    });
 }
