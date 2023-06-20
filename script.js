@@ -153,7 +153,7 @@ function setupGenerateButton() {
         console.log('Selected crust = ' + selectedCrust + ", size = " + selectedSize + ", toppings = " + selectedTopping);
         console.log('Pizza file = ' + pizzaModelName);
 
-        var pizza = { scale: selectedSize, src: './assets/' + pizzaModelName };
+        var pizza = { scale: selectedSize, src: './assets/Custom/' + pizzaModelName };
         let model = document.querySelector('a-entity');
         setModel(pizza, model);
     });
