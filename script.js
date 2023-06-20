@@ -52,10 +52,7 @@ function setupButtons() {
         button.textContent = scale.name;
         button.addEventListener('click', function() {
             let model = document.querySelector('a-entity');
-            let pizza = { 
-                src = './assets/Custom/thin.gltf',
-                scale = scale.scale
-            };
+            const pizza = {src: './assets/Custom/thin.gltf', scale: scale.scale};
             setModel(pizza, model);
         });
         buttonGroup.appendChild(button)
