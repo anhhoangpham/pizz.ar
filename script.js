@@ -4,37 +4,20 @@ window.onload = () => {
     setupButtons();
 };
 
-var models = [
+var currentScaleIndex = 0
+var scales = [
     {
-        src: './assets/Pizza01/pizza.gltf',
-        scale: '0.6126420062731839 0.6126420062731839 0.6126420062731839',
-        info: 'Cheese',
-        thumbnail: './assets/Pizza01/thumbnail.png'
+        name: 'S',
+        scale: '3, 3, 3'
     },
     {
-        src: './assets/Pizza02/pizza.gltf',
-        scale: '2 2 2',
-        info: 'Salami',
-        thumbnail: './assets/Pizza02/thumbnail.png'
+        name: 'M',
+        scale: '5, 5, 5'
     },
     {
-        src: './assets/Pizza03/pizza.gltf',
-        scale: '0.07666791817270857 0.07666791817270857 0.07666791817270857',
-        info: 'Pepperoni',
-        thumbnail: './assets/Pizza03/thumbnail.png'
-    },
-    {
-        src: './assets/Pizza04/pizza.gltf',
-        scale: '4.124475892003208 4.124475892003208 4.124475892003208',
-        info: 'New pizza',
-        thumbnail: './assets/Pizza04/thumbnail.png'
-    },
-    {
-        src: './assets/Pizza05/custom_pizza_thick.gltf',
-        scale: '2 2 2',
-        info: 'Pizza base',
-        thumbnail: './assets/Pizza04/thumbnail.png'
-    },
+        name: 'L',
+        scale: '7, 7, 7'
+    }
 ];
 
 var setModel = function (model, entity) {
@@ -58,24 +41,23 @@ var setModel = function (model, entity) {
 
 function renderPizza() {
     let model = document.querySelector('a-entity');
-    setModel(models[0], model);
+    // setModel(models[0], model);
 }
+
 
 function setupButtons() {
     let buttonGroup = document.getElementById('button_group')
-    models.forEach((pizza) => {
-        let thumbnail = document.createElement('img')
-        thumbnail.setAttribute('src', pizza.thumbnail)
-        thumbnail.setAttribute('width', "100")
-        thumbnail.setAttribute('height', "100")
-
+    scales.forEach((scale) => {
         let button = document.createElement('button')
+        button.textContent = scale.name;
         button.addEventListener('click', function() {
             let model = document.querySelector('a-entity');
+            let pizza = { 
+                src = './assets/Custom/thin.gltf',
+                scale = scale.scale
+            };
             setModel(pizza, model);
         });
-
-        button.appendChild(thumbnail)
         buttonGroup.appendChild(button)
     });
 }
