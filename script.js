@@ -144,7 +144,7 @@ function setupGenerateButton() {
         var options = document.getElementById('topping').selectedOptions;
         var selectedTopping = Array.from(options).map(({ value }) => value).join("_");
         
-        var pizzaModelName = selectedCrust;
+        var pizzaModelName = './assets/Custom/' + selectedCrust;
         if (selectedTopping) {
             pizzaModelName += '_' + selectedTopping;
         }
@@ -153,7 +153,7 @@ function setupGenerateButton() {
         console.log('Selected crust = ' + selectedCrust + ", size = " + selectedSize + ", toppings = " + selectedTopping);
         console.log('Pizza file = ' + pizzaModelName);
 
-        var pizza = { scale: selectedSize, src: './assets/Custom/' + pizzaModelName };
+        const pizza = { scale: selectedSize, src: pizzaModelName };
         let model = document.querySelector('a-entity');
         setModel(pizza, model);
     });
