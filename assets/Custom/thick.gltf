@@ -20,7 +20,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"pCylinder13",
+			"name":"cheese",
 			"rotation":[
 				0.7071068286895752,
 				0,
@@ -35,7 +35,7 @@
 		},
 		{
 			"mesh":1,
-			"name":"pCylinder1.thick",
+			"name":"thick",
 			"rotation":[
 				0.7071068286895752,
 				0,
