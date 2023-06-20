@@ -10,15 +10,15 @@ window.onload = () => {
 var scales = [
     {
         name: 'S',
-        scale: '3, 3, 3'
+        scale: '10, 10, 10'
     },
     {
         name: 'M',
-        scale: '5, 5, 5'
+        scale: '15, 15, 15'
     },
     {
         name: 'L',
-        scale: '7, 7, 7'
+        scale: '20, 20, 20'
     }
 ];
 var crusts = [
@@ -61,8 +61,10 @@ var setModel = function (model, entity) {
 
     entity.setAttribute('gltf-model', model.src);
 
-    const div = document.querySelector('.instructions');
-    div.innerText = model.info;
+    if (model.instructions) {
+        const div = document.querySelector('.instructions');
+        div.innerText = model.info;
+    }
 };
 
 

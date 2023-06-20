@@ -54,3 +54,14 @@ select {
     -webkit-appearance: menulist-button;  
     -moz-appearance:none;
 }
+
+.multiselect-wrapper {
+    width: 80px;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.multiselect-wrapper .multiselect-input {
+    width: 80px;
+}
