@@ -29,7 +29,12 @@ var models = [
         info: 'New pizza',
         thumbnail: './assets/Pizza04/thumbnail.png'
     },
-
+    {
+        src: './assets/Pizza05/custom_pizza_thick.gltf',
+        scale: '2 2 2',
+        info: 'Pizza base',
+        thumbnail: './assets/Pizza04/thumbnail.png'
+    },
 ];
 
 var setModel = function (model, entity) {
