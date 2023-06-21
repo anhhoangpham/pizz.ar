@@ -3,8 +3,8 @@ window.onload = () => {
     setupSizeUI();
     setupCrustUI();
     setupToppingUI();
-    setupGenerateButton();
-    document.getElementById('buttonGenerate').click();
+    // setupGenerateButton();
+    // document.getElementById('buttonGenerate').click();
 };
 
 var scales = [
@@ -45,6 +45,7 @@ var toppings = [
         value: 'mushroom'
     }
 ];
+var selectedToppings = [];
 
 var setModel = function (model, entity) {
     if (model.scale) {
@@ -74,9 +75,7 @@ function setupSizeUI() {
   select.id = "size";
   select.setAttribute('class', 'pizzaOptions');
   select.addEventListener('change', function() {
-    let model = document.querySelector('a-entity');
-    const pizza = {src: './assets/Custom/thin.gltf', scale: this.value};
-    setModel(pizza, model);
+    generatePizza();
   });
 
   for (const val of scales) {
@@ -98,6 +97,9 @@ function setupCrustUI() {
   crustSelect.name = "crust";
   crustSelect.id = "crust";
   crustSelect.setAttribute('class', 'pizzaOptions');
+  crustSelect.addEventListener('change', function() {
+    generatePizza();
+  });
 
   for (const val of crusts) {
     var option = document.createElement("option");
@@ -114,40 +116,61 @@ function setupCrustUI() {
 }
 
 function setupToppingUI() {
-  var toppingSelect = document.createElement("select");
+  var toppingSelect = document.createElement("div");
   toppingSelect.name = "topping";
   toppingSelect.id = "topping";
-  toppingSelect.setAttribute('class', 'pizzaOptions');
-  toppingSelect.setAttribute('multiple', '');
+  toppingSelect.setAttribute('class', 'ToppingsOption');
 
   for (const val of toppings) {
-    var option = document.createElement("option");
+    var option = document.createElement("input");
     option.value = val.value;
     option.text = val.name;
+    option.textContent = val.name
+    option.setAttribute('class', 'btnTopping');
+    option.setAttribute('type', 'checkbox');
+    option.addEventListener('change', function() {
+        if (this.checked) {
+            selectedToppings.push(val.value);
+        } else {
+            const newArr = selectedToppings.filter(item => item !== val.value)
+            selectedToppings = newArr
+        }
+        console.log("Selected toppings " + selectedToppings);
+        generatePizza();
+    })
+    var label = document.createElement("label");
+    label.innerHTML = val.name
+    label.setAttribute('class', 'labelTopping');
+
+    toppingSelect.appendChild(label);
     toppingSelect.appendChild(option);
+
   }
 
   var label = document.createElement("label");
   label.innerHTML = "Topping: "
   label.htmlFor = "toppingSelect";
-
   document.getElementById("customize_control").appendChild(label).appendChild(toppingSelect);
-  document.multiselect('#topping');
 }
 
 function generatePizza() {
     var selectedSize = document.getElementById('size').value;
     var selectedCrust = document.getElementById('crust').value;
     var options = document.getElementById('topping').selectedOptions;
-    var selectedTopping = Array.from(options).map(({ value }) => value).join("_");
     
     var pizzaModelName = './assets/Custom/' + selectedCrust;
-    if (selectedTopping) {
-        pizzaModelName += '_' + selectedTopping;
+
+    if (selectedToppings.length > 0) {
+        selectedToppings.sort(function(a, b) {
+            var textA = a.toUpperCase();
+            var textB = b.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        pizzaModelName += '_' + selectedToppings.join('_');
     }
     pizzaModelName += ".gltf";
 
-    console.log('Selected crust = ' + selectedCrust + ", size = " + selectedSize + ", toppings = " + selectedTopping);
+    console.log('Selected crust = ' + selectedCrust + ", size = " + selectedSize + ", toppings = " + selectedToppings);
     console.log('Pizza file = ' + pizzaModelName);
 
     const pizza = { scale: selectedSize, src: pizzaModelName };

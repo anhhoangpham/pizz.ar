@@ -60,8 +60,35 @@ select {
     display: inline-block;
     white-space: nowrap;
     font-size: 12px;
+    color: black;
 }
 
 .multiselect-wrapper .multiselect-input {
     width: 80px;
+}
+
+#customize_control {
+    flex-direction: column;
+    background: darkred;
+    height: 250px;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-left: 20px;
+    font-size: 18px;
+    font-family: fantasy;
+    color: #fafafa;
+    font-weight: bold;
+}
+
+#customize_control > label {
+    padding-top: 15px;
+}
+
+.ToppingsOption {
+    padding-top: 10px;
+    display: flex;
+}
+
+.labelTopping {
+    padding-left: 25px;
 }
