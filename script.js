@@ -3,22 +3,22 @@ window.onload = () => {
     setupSizeUI();
     setupCrustUI();
     setupToppingUI();
-    // setupGenerateButton();
-    // document.getElementById('buttonGenerate').click();
+    setupGenerateButton();
+    document.getElementById('buttonGenerate').click();
 };
 
 var scales = [
     {
         name: 'S',
-        scale: '50, 50, 50'
+        scale: '30, 30, 30'
     },
     {
         name: 'M',
-        scale: '100, 100, 100'
+        scale: '50, 50, 50'
     },
     {
         name: 'L',
-        scale: '200, 200, 200'
+        scale: '75, 75, 75'
     }
 ];
 var crusts = [
