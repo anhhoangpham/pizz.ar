@@ -3,8 +3,7 @@ window.onload = () => {
     setupSizeUI();
     setupCrustUI();
     setupToppingUI();
-    // setupGenerateButton();
-    // document.getElementById('buttonGenerate').click();
+    generatePizza();
 };
 
 var scales = [
@@ -128,6 +127,7 @@ function setupToppingUI() {
     option.textContent = val.name
     option.setAttribute('class', 'btnTopping');
     option.setAttribute('type', 'checkbox');
+    option.setAttribute("checked", "true");
     option.addEventListener('change', function() {
         if (this.checked) {
             selectedToppings.push(val.value);
