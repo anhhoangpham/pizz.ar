@@ -3,22 +3,22 @@ window.onload = () => {
     setupSizeUI();
     setupCrustUI();
     setupToppingUI();
-    setupGenerateButton();
-    document.getElementById('buttonGenerate').click();
+    // setupGenerateButton();
+    // document.getElementById('buttonGenerate').click();
 };
 
 var scales = [
     {
         name: 'S',
-        scale: '10, 10, 10'
+        scale: '50, 50, 50'
     },
     {
         name: 'M',
-        scale: '15, 15, 15'
+        scale: '100, 100, 100'
     },
     {
         name: 'L',
-        scale: '20, 20, 20'
+        scale: '200, 200, 200'
     }
 ];
 var crusts = [
@@ -135,29 +135,33 @@ function setupToppingUI() {
   document.multiselect('#topping');
 }
 
+function generatePizza() {
+    var selectedSize = document.getElementById('size').value;
+    var selectedCrust = document.getElementById('crust').value;
+    var options = document.getElementById('topping').selectedOptions;
+    var selectedTopping = Array.from(options).map(({ value }) => value).join("_");
+    
+    var pizzaModelName = './assets/Custom/' + selectedCrust;
+    if (selectedTopping) {
+        pizzaModelName += '_' + selectedTopping;
+    }
+    pizzaModelName += ".gltf";
+
+    console.log('Selected crust = ' + selectedCrust + ", size = " + selectedSize + ", toppings = " + selectedTopping);
+    console.log('Pizza file = ' + pizzaModelName);
+
+    const pizza = { scale: selectedSize, src: pizzaModelName };
+    let model = document.querySelector('a-entity');
+    setModel(pizza, model);
+}
+
 function setupGenerateButton() {
     let buttonGroup = document.getElementById('customize_control')
     let button = document.createElement('button')
     button.id = 'buttonGenerate';
     button.textContent = "Bake!";
     button.addEventListener('click', function() {
-        var selectedSize = document.getElementById('size').value;
-        var selectedCrust = document.getElementById('crust').value;
-        var options = document.getElementById('topping').selectedOptions;
-        var selectedTopping = Array.from(options).map(({ value }) => value).join("_");
-        
-        var pizzaModelName = './assets/Custom/' + selectedCrust;
-        if (selectedTopping) {
-            pizzaModelName += '_' + selectedTopping;
-        }
-        pizzaModelName += ".gltf";
-
-        console.log('Selected crust = ' + selectedCrust + ", size = " + selectedSize + ", toppings = " + selectedTopping);
-        console.log('Pizza file = ' + pizzaModelName);
-
-        const pizza = { scale: selectedSize, src: pizzaModelName };
-        let model = document.querySelector('a-entity');
-        setModel(pizza, model);
+        generatePizza();
     });
 
     buttonGroup.appendChild(button)
